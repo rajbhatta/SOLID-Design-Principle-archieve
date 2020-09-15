@@ -26,7 +26,7 @@ class Post
 However, the above implementation violates the open/closed principle in the way this code differs the behavior on the starting letter.
 If we later wanted to also include mentions starting with ‘@’, we’d have to modify the class with an extra ‘else if’ in the CreatePost() method.
 
-- Let’s try to make this code compliant with the open/closed principle by simply using inheritance.
+- Let’s try to make this code compliant with the open/closed principle by simply using inheritance in C#
 ```java
 class Post
 {
