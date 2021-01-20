@@ -116,6 +116,7 @@ public interface IEmployeeStore
 ```
 
 ```java
+EmployeeStore.java
 public class EmployeeStore implements IEmployeeStore 
 {
     //inject in runtime
@@ -133,6 +134,7 @@ public class EmployeeStore implements IEmployeeStore
 ```
 
 ```java
+IEmailSender.java
 public interface IEmailSender 
 {
     public void sendEmail(Employee employee, IEmailContent content);
@@ -140,6 +142,7 @@ public interface IEmailSender
 ```
 
 ```java
+EmailSender.java
 public class EmailSender implements IEmailSender
 {
     @Override
@@ -150,12 +153,14 @@ public class EmailSender implements IEmailSender
 ```
 
 ```java
+IEmailContent.java
 public interface IEmailContent {
      
 }
 ```
 
 ```java
+EmailContent.java
 public class EmailContent implements IEmailContent 
 {
     private String type;
