@@ -70,6 +70,7 @@ public class Employee{
 ### Example 2.1 Code without good Single Responsibility Principle ###
 let’s assume we have working on an application which involve working with employees. We have an interface IEmployeeStore and it’s implementation EmployeeStore which have following methods.
 ```java
+IEmployeeStore.java
 public interface IEmployeeStore 
 {
     public Employee getEmployeeById(Long id);
@@ -81,6 +82,7 @@ public interface IEmployeeStore
 ```
 
 ```java
+EmployeeStore.java
 public class EmployeeStore implements IEmployeeStore 
 {
     @Override
