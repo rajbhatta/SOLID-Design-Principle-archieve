@@ -38,7 +38,7 @@ public class Employee{
 }
 ```
 
-### Example 1.2 code with good single responsibility principle ###
+### Example 1.2 code with good single responsibility principle 
 
 ```java
 public class HRPromotions{
@@ -63,5 +63,102 @@ public class Employee{
   private string address; 
   private Date dateOfJoining;
   //Getters & Setters for all the private attributes
+}
+```
+
+## Example 2 ##
+### Example 2.1 Code without good Single Responsibility Principle ###
+let’s assume we have working on an application which involve working with employees. We have an interface IEmployeeStore and it’s implementation EmployeeStore which have following methods.
+```java
+public interface IEmployeeStore 
+{
+    public Employee getEmployeeById(Long id);
+     
+    public void addEmployee(Employee employee);
+     
+    public void sendEmail(Employee employee, String content);
+}
+```
+
+```java
+public class EmployeeStore implements IEmployeeStore 
+{
+    @Override
+    public Employee getEmployeeById(Long id) {
+        return null;
+    }
+     
+    @Override
+    public void addEmployee(Employee employee) {
+         
+    }
+ 
+    @Override
+    public void sendEmail(Employee employee, String content) {      
+    }
+}
+```
+Above class seems good on any normal application. using EmployeeStore, are able to get/add employees and send email to them.
+
+Now suppose after product release, we got requirement that email content can be of two types i.e. HTML and text. Above class supprt only text content. What you will do?
+
+One way to solve this issue is create another method sendHtmlEmail() – but what happens when we are asked to support different protocols for sending emails for both content types. Overall class will look very ugly and difficult to read and maintain.
+
+### Example 2.2 code with good single responsibility principle ###
+```java
+IEmployeeStore.java
+public interface IEmployeeStore 
+{   
+    public Employee getEmployeeById(Long id);
+     
+    public void addEmployee(Employee employee);
+}
+```
+
+```java
+public class EmployeeStore implements IEmployeeStore 
+{
+    //inject in runtime
+    private IEmailSender emailSender;
+     
+    @Override
+    public Employee getEmployeeById(Long id) {
+        return null;
+    }
+     
+    @Override
+    public void addEmployee(Employee employee) {
+    }
+}
+```
+
+```java
+public interface IEmailSender 
+{
+    public void sendEmail(Employee employee, IEmailContent content);
+}
+```
+
+```java
+public class EmailSender implements IEmailSender
+{
+    @Override
+    public void sendEmail(Employee employee, IEmailContent content) {       
+        //logic
+    }
+}
+```
+
+```java
+public interface IEmailContent {
+     
+}
+```
+
+```java
+public class EmailContent implements IEmailContent 
+{
+    private String type;
+    private String content;
 }
 ```
