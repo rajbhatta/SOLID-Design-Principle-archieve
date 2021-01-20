@@ -1,11 +1,3 @@
-## What is SOLID design principle ? ##
-S.O.L.I.D stands for:
-S - Single-responsiblity principle
-O - Open-closed principle
-L - Liskov substitution principle
-I - Interface segregation principle
-D - Dependency Inversion Principle
-
 ## 1. Single-Responsibility Principle ##
 Single responsibility principle states that each class must have only one responsibility. 
 
@@ -22,3 +14,8 @@ Thus, this class is not following the single responsibility principle
 
 ### 1.2 Class design with single responsibility principle ###
 <img src="img/Single-good.png">
+- In this design DatabaseManager is responsible for managing connection
+- EmployeeDao is responsible for save and delete
+- EmployeeReportFormatter is responsible for formatting report
+- Employee class is normal POJO
+<img src="img/Single-good1.png">
