@@ -18,4 +18,50 @@ Thus, this class is not following the single responsibility principle
 - EmployeeDao is responsible for save and delete
 - EmployeeReportFormatter is responsible for formatting report
 - Employee class is normal POJO
-<img src="img/Single-good1.png">
+<img src="img/Single-good-1.png">
+
+## Example 1 ##
+### Example 1.1 code without good single responsibility principle ###
+```java
+public class Employee{
+  private String employeeId;
+  private String name;
+  private string address; 
+  private Date dateOfJoining;
+  public boolean isPromotionDueThisYear(){
+    //promotion logic implementation
+  }
+  public Double calcIncomeTaxForCurrentYear(){
+    //income tax logic implementation
+  }
+  //Getters & Setters for all the private attributes
+}
+```
+
+### Example 1.2 code with good single responsibility principle ###
+
+```java
+public class HRPromotions{
+  public boolean isPromotionDueThisYear(Employee emp){
+    //promotion logic implementation using the employee information passed
+  }
+}
+```
+
+```java
+public class FinITCalculations{
+  public Double calcIncomeTaxForCurrentYear(Employee emp){
+    //income tax logic implementation using the employee information passed
+  }
+}
+```
+
+```java
+public class Employee{ 
+  private String employeeId;
+  private String name;
+  private string address; 
+  private Date dateOfJoining;
+  //Getters & Setters for all the private attributes
+}
+```
