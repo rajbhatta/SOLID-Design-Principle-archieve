@@ -3,7 +3,7 @@
 
 02-Open-Closed-Principle --> <a href="02-Open-Closed-Principle/readme.MD">Open Closed Principle</a>
 
-03-Liskov-Substitution-Principle --> <a href="03-Liskov-Substitution-Principle/readme.MD">Liskov Substitution Principle</a>
+03-Liskov-Substitution-Principle --> <a href="03-Liskov-Substitution-Principle/README.MD">Liskov Substitution Principle</a>
 
 04-Interface-Segregation-Principle --> <a href="04-Interface-Segregation-Principle/README.MD">Interface Segregation Principle</a>
 
